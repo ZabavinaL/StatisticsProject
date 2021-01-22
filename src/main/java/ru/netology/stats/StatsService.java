@@ -55,13 +55,8 @@ public class StatsService {
 
     //Кол-во месяцев, в которых продажи были ниже среднего
     public int belowTheAverage(int[] sales) {
-        int sum = 0;
-        int month = 0;
-        for (int sale : sales) {
-            month = month + 1;
-            sum += sale;
-        }
-        int avSales = sum / sales.length;
+
+        int avSales = calculateAverageSum(sales);
         int belowNumbers = 0;
 
         for (int value : sales) {
@@ -75,14 +70,8 @@ public class StatsService {
 
     //    Кол-во месяцев, в которых продажи были выше среднего
     public int aboveTheAverage(int[] sales) {
-        int sum = 0;
-        int month = 0;
 
-        for (int sale : sales) {
-            month++;
-            sum += sale;
-        }
-        int avSales = sum / sales.length;
+        int avSales = calculateAverageSum(sales);
         int aboveNumbers = 0;
 
         for (int value : sales) {
